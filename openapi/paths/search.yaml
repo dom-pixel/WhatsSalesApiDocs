@@ -1,0 +1,55 @@
+get:
+  tags:
+    - Search
+  summary: Pesquisar Diálogos
+  description: 
+    $ref: './search/search_desc.md'
+  operationId: GetSearch
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": [
+        {
+            "id": 2,
+            "name": "id 2",
+            "solution_id": 1,
+            "type": "MRR",
+            "description": "id 2",
+            "cost": "123",
+            "seller_value": "idk",
+            "value_mmr": "dasdsa",
+            "value_ps": "dksaldk",
+            "account_id": 1,
+            "created_at": "2022-06-13T10:08:39.000-04:00",
+            "updated_at": "2022-06-13T10:08:39.000-04:00",
+            "deleted_at": null
+        }
+    ]
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}

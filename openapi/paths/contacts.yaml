@@ -1,0 +1,146 @@
+get:
+  tags:
+    - Contacts
+  summary: Mostrar Contatos
+  description: Mostrar Contacts
+  operationId: ShowContacts
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSucess": true,
+                  "code": 200,
+                  "message": "Sucesso!",
+                  "payload": [
+                    {
+                      "id": 1,
+                      "first_name": "M1gu3l",
+                      "last_name": "000dasdadasdas1",
+                      "phone": null,
+                      "email": null,
+                      "created_at": "2022-06-06T09:57:32.000-04:00",
+                      "updated_at": "2022-06-06T09:57:32.000-04:00",
+                      "account_id": 1,
+                      "chat_id": null,
+                      "date_of_birth": null,
+                      "cpf": null,
+                      "rg": null,
+                      "gender": null,
+                      "office": null
+                    },
+                    {
+                      "id": 2,
+                      "first_name": "dasdasd",
+                      "last_name": "dd23423",
+                      "phone": null,
+                      "email": null,
+                      "created_at": "2022-06-06T09:57:32.000-04:00",
+                      "updated_at": "2022-06-06T09:57:32.000-04:00",
+                      "account_id": 1,
+                      "chat_id": null,
+                      "date_of_birth": null,
+                      "cpf": null,
+                      "rg": null,
+                      "gender": null,
+                      "office": null
+                    }
+                  ]
+                }
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+
+post:
+  tags:
+    - Contacts
+  summary: Criar Contato
+  description: Criar Contact
+  operationId: CreateContacts
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSucess": true,
+                  "code": 200,
+                  "message": "Sucesso!",
+                  "payload":
+                    {
+                      "first_name": "example",
+                      "last_name": "example2",
+                      "phone": "0123456789012",
+                      "email": "example@example.com",
+                      "chat_id": "1",
+                      "date_of_birth": "31/12/2022",
+                      "cpf": "123.456.789-01",
+                      "rg": "12.345.678-9",
+                      "gender": "Masculino/Feminino",
+                      "office": "a",
+                      'account_id': '1',
+                      'created_at': '2050-03-23T12:34:12;045-01:00',
+                      'updated_at': '2050-03-23T12:34:12;045-01:00',
+                      'id': '1'
+                    },
+                }
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example:
+            {
+              "firstName": "example",
+              "lastName": "example2",
+              "phone": "0123456789012",
+              "email": "example@example.com",
+              "chatId": "1",
+              "dateOfBirth": "20220312",
+              "cpf": "12345678901",
+              "rg": "123456789",
+              "gender": "Masculino",
+              "office": "a"
+            }
+    description: Contact body
+    required: true

@@ -1,0 +1,121 @@
+put:
+  parameters: 
+    - name: id
+      in: path
+      description: ID do Estágio
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Stages
+  summary: Atualizar Estágio
+  description: Atualiza um Estágio
+  operationId: UpdateStage
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "id": 1,
+        "title": "MyStage:D",
+        "description": null,
+        "color": "#0b0b0b",
+        "stage_order": 1,
+        "created_at": "2022-06-17T15:32:37.000-04:00",
+        "updated_at": "2022-06-22T09:16:26.600-04:00"
+    }
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example: 
+            {
+              "color": "#0b0b0b"
+          }
+    description: Products Body
+    required: true
+delete:
+  parameters: 
+    - name: id
+      in: path
+      description: ID do Estágio
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Stages
+
+  summary: Deletar Estágio
+  description: Deleta um Estágio
+  operationId: DeleteStage
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "id": 1,
+        "title": "MyStage:D",
+        "description": null,
+        "color": "#0b0b0b",
+        "stage_order": 1,
+        "created_at": "2022-06-17T15:32:37.000-04:00",
+        "updated_at": "2022-06-22T09:16:26.600-04:00"
+    }
+}
+
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}

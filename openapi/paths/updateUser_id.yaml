@@ -1,0 +1,105 @@
+put:
+  parameters: 
+    - name: id
+      in: path
+      description: ID do operador
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Users
+  summary: Atualizar Operador
+  description: Atualizar Operador
+  operationId: UpdateUsers
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                
+    "isSuccess": true,
+    "code": 200,
+    "message": "Usuário atualizado com sucesso!"
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example: {
+            "firstName": "MY LITTLE",
+            "lastName": "user",
+            "email": "email@mymail.wowthatwasreallycool",
+            "password": "M1gu3lPC@#",
+            "rolesId": [1, 2]
+        }
+    description: User Body
+    required: true
+
+delete:
+  parameters: 
+    - name: id
+      in: path
+      description: ID do operador
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Users
+  summary: Deletar Operador
+  description: Deletar Operador
+  operationId: DeleteOperator
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                
+    "isSuccess": true,
+    "code": 200,
+    "message": "Usuário deletado com sucesso!"
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}

@@ -1,0 +1,148 @@
+get:
+  tags:
+    - Proposals
+  summary: Mostrar Propostas
+  description: Mostra as Propostas cadastradas no sistema
+  operationId: GetProposals
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": [
+      {
+        "id": 18,
+        "ps_payment_method_id": 1,
+        "mrr_payment_method_id": null,
+        "deal_id": null,
+        "title": "idjk",
+        "description": "idk2.pdlasdfkaifj",
+        "signature": null,
+        "valid_at": "2022-06-15T14:40:12.000-04:00",
+        "total_price": "123.99",
+        "ps_term_of_first_installment": 1,
+        "ps_term_of_installments": 1,
+        "ps_max_installment": 123,
+        "ps_total_price": "123.99",
+        "mrr_first_payment": "2022-06-17",
+        "mrr_expiration_day": "2022-06-15T14:40:12.000-04:00",
+        "mrr_total_price": "123.99",
+        "created_at": "2022-06-17T15:47:29.000-04:00",
+        "updated_at": "2022-06-17T15:47:29.000-04:00",
+        "organization_id": 1,
+        "contact_id": 1,
+        "ps_first_payment": "sla",
+        "installments": "idk",
+        "status": "Aberto",
+        "next_contact_date": "2020-02-20T00:00:00.000-04:00",
+        "goal": "fechar contratosKKK",
+        "user_id": null,
+        "follow_up_type": "Tarefa",
+        "pipeline_id": null,
+        "stage_id": null,
+        "closing_forecast": "True",
+        "temperature": "Quente",
+        "probability": "90%",
+        "account_id": 1
+    }
+    ]
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSuccess": false,
+                  "code": 0,
+                  "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+              }
+post: 
+  tags:
+    - Proposals
+  summary: Criar Proposta
+  description:
+    $ref: './proposals/proposals_desc.md'
+  operationId: PostProposal
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Proposta criada com sucesso"
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example:
+            {
+            "psPaymentMethodId": 1,
+            "mrrPaymentMethodId": 1,
+            "dealId": 1,
+            "title": "idjk",
+            "description": "idk2.pdlasdfkaifj",
+            "signature": "",
+            "validAt": "2022-06-15T14:40:12-04:00",
+            "totalPrice": "123.99",
+            "psTermOfFirstInstallment": 1,
+            "psTermOfInstallments": 1,
+            "psMaxInstallment": 123,
+            "psTotalPrice": "123.99",
+            "mrrFirstPayment": "2022-06-17",
+            "mrrExpirationDay": "2022-06-15T14:40:12-04:00",
+            "mrrTotalPrice": "123.99",
+            "organizationId": 1,
+            "contactId": 1,
+            "psFirstPayment": "sla",
+            "installments": "idk",
+            "status": "Aberto",
+            "nextContactDate": "2020-02-20T00:00:00-04:00",
+            "goal": "fechar contratosKKK",
+            "followUpType": "Tarefa",
+            "closingForecast": "True",
+            "temperature": "Quente",
+            "probability": "90%"
+        }
+    description: Proposal body
+    required: true

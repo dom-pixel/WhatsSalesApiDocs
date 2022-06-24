@@ -1,0 +1,113 @@
+get: 
+  tags: 
+    -  Payment Methods
+  summary: Mostrar Payment Methods
+  description: Mostrar Métodos de Pagamento
+  operationId: ShowPaymentMethods
+  security: 
+    -  Bearer Token: []
+  responses: 
+    200: 
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": [
+        {
+            "id": 1,
+            "title": "MyCreditCard",
+            "type": "product",
+            "down_payment_percent": 0,
+            "discount_percent": 0,
+            "term_of_first_installment": 0,
+            "max_installments": 120,
+            "term_of_installments": 0,
+            "created_at": "2022-06-17T15:38:42.000-04:00",
+            "updated_at": "2022-06-17T15:38:42.000-04:00",
+            "account_id": 1
+        }
+    ]
+}
+    400:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+
+}
+
+post: 
+  tags:
+    - Payment Methods
+  summary: Criar Payment Method
+  description: Cria um Método de Pagamento
+  operationId: PostPaymentMethod
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "title": "MyCreditCard",
+        "type": "product",
+        "max_installments": 120,
+        "account_id": 1,
+        "created_at": "2022-06-17T15:38:42.685-04:00",
+        "updated_at": "2022-06-17T15:38:42.685-04:00",
+        "id": 1
+    }
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example:
+            {
+    "title": "MyCreditCard",
+    "type": "product",
+    "maxInstallments": 120
+}
+    description: Payment Method Body
+    required: true

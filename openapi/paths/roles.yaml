@@ -1,0 +1,137 @@
+get:
+  tags:
+    - Roles
+  summary: Mostrar Roles
+  description: Mostra as Funções
+  operationId: GetRoles
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": [
+        {
+            "id": 1,
+            "name": "Administrador",
+            "account_id": 1,
+            "created_at": "2022-06-17T15:13:58.000-04:00",
+            "updated_at": "2022-06-17T15:13:58.000-04:00",
+            "permissions": [
+                {
+                    "id": 1,
+                    "name": "listar funis",
+                    "type": "list",
+                    "title": "Funil",
+                    "created_at": "2022-06-17T15:13:58.000-04:00",
+                    "updated_at": "2022-06-17T15:13:58.000-04:00"
+                },
+                {
+                    "id": 2,
+                    "name": "criar funil",
+                    "type": "create",
+                    "title": "Funil",
+                    "created_at": "2022-06-17T15:13:58.000-04:00",
+                    "updated_at": "2022-06-17T15:13:58.000-04:00"
+                },
+                {
+                    "id": 3,
+                    "name": "visualizar funil",
+                    "type": "show",
+                    "title": "Funil",
+                    "created_at": "2022-06-17T15:13:58.000-04:00",
+                    "updated_at": "2022-06-17T15:13:58.000-04:00"
+                },
+                {
+                    "id": 4,
+                    "name": "editar funil",
+                    "type": "update",
+                    "title": "Funil",
+                    "created_at": "2022-06-17T15:13:58.000-04:00",
+                    "updated_at": "2022-06-17T15:13:58.000-04:00"
+                },
+                {
+                    "id": 5,
+                    "name": "deletar funil",
+                    "type": "delete",
+                    "title": "Funil",
+                    "created_at": "2022-06-17T15:13:58.000-04:00",
+                    "updated_at": "2022-06-17T15:13:58.000-04:00"
+                }
+            ]
+              }
+    ]
+            }
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSuccess": false,
+                  "code": 0,
+                  "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+              }
+post: 
+  tags: 
+    -  Roles
+  summary: Criar Role
+  description: Cria uma Função
+  operationId: PostRole
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Função criada com sucesso"
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example:
+            {
+    "name": "Usuário",
+    "permissionIds": [76]
+}
+    description: Role body
+    required: true

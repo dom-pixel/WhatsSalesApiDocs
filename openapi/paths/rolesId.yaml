@@ -1,0 +1,103 @@
+put:
+  parameters: 
+    - name: id
+      in: path
+      description: ID da Role
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Roles
+  summary: Atualizar Role
+  description: Atualizar uma Função
+  operationId: UpdateRole
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Função atualizada com sucesso"
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example: 
+            {
+    "name": "Usuários",
+    "permissionIds": [1,2,3,4,5,6,7,8,9,10]
+}
+    description: Role Body
+    required: true
+
+delete:
+  parameters: 
+    - name: id
+      in: path
+      description: ID da Role
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Roles
+  summary: Deletar Role
+  description: Deleta uma Função
+  operationId: DeleteRole
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Função deletada com sucesso"
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}

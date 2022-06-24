@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: WhatsSales
+  termsOfService: 'https://example.com/terms/'
+  contact:
+    email: contact@example.com
+    url: 'http://example.com/blablabla'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://whatssales.s3.sa-east-1.amazonaws.com/Logo+WhatsSales+(1).png'
+  description:
+    $ref: ./info-description.md
+tags:
+  - name: Auth
+    description: Para acessar a API, você precisa de um **Bearer Token**, para conseguir o Token você irá precisar fazer login na API
+  - name: Config
+    description: Adicione, Atualize, Delete ou Veja as configs, que são tokens de outros serviços, como o Asaas.
+  - name: Contacts
+    description: Ver os Contatos
+
+servers:
+  - url: 'https://localhost:3333/api/v1'
+paths:
+  /auth/login:
+    $ref: paths/auth.yaml
+  /configs:
+    $ref: paths/config.yaml
+  /configs/{id}:
+    $ref: paths/configId.yaml
+  /contacts:
+    $ref: paths/contacts.yaml
+  /contacts/{id}:
+    $ref: paths/contactsId.yaml
+  /deals:
+    $ref: paths/deals.yaml
+  /deals/{id}:
+    $ref: paths/dealsId.yaml
+  /dialogs:
+    $ref: paths/dialogs.yaml
+  /itens:
+    $ref: paths/itens.yaml
+  /itens/{id}:
+    $ref: paths/itensId.yaml
+  /lost-reasons:
+    $ref: paths/lostReasons.yaml
+  /lost-reasons/{id}:
+    $ref: paths/lostReasonsId.yaml
+  /notes:
+    $ref: paths/notes.yaml
+  /notes/{id}:
+    $ref: paths/notesId.yaml
+  /payment-methods:
+    $ref: paths/paymentMethods.yaml
+  /payment-methods/{id}:
+    $ref: paths/paymentMethodsId.yaml
+  /permissions:
+    $ref: paths/permissions.yaml
+  /pipelines:
+    $ref: paths/pipelines.yaml
+  /pipelines/{id}:
+    $ref: paths/pipelinesId.yaml
+  /products:
+    $ref: paths/products.yaml
+  /products/{id}:
+    $ref: paths/productsId.yaml
+  /proposals:
+    $ref: paths/proposals.yaml
+  /proposals/{id}:
+    $ref: paths/proposalsId.yaml
+  /roles:
+    $ref: paths/roles.yaml
+  /roles/{id}:
+    $ref: paths/rolesId.yaml
+  /search:
+    $ref: paths/search.yaml
+  /solutions:
+    $ref: paths/solutions.yaml
+  /solutions/{id}:
+    $ref: paths/solutionsId.yaml
+  /stages:
+    $ref: paths/stages.yaml
+  /stages/{id}:
+    $ref: paths/stagesId.yaml
+  /operators:
+    $ref: paths/users.yaml
+  /operators/{id}:
+    $ref: paths/updateUser_id.yaml
+      
+components:
+  securitySchemes:
+    main_auth:
+      type: apiKey
+      name: a
+      in: header
+    Bearer Token:
+      type: apiKey
+      in: header
+      name: Authorization
+    basic_auth:
+      type: http
+      scheme: basic

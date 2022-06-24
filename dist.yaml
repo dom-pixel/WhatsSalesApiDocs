@@ -1,0 +1,1463 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: WhatsSales
+  termsOfService: https://example.com/terms/
+  contact:
+    email: contact@example.com
+    url: http://example.com/blablabla
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://whatssales.s3.sa-east-1.amazonaws.com/Logo+WhatsSales+(1).png
+  description: >
+    This is an **example** API to demonstrate features of the OpenAPI
+    specification.
+
+
+    # Introdução
+
+
+    Essa é a documentação da API do WhatsSales
+
+
+
+    # OpenAPI Specification
+
+
+    The goal of The OpenAPI Specification is to define a standard,
+
+    language-agnostic interface to REST APIs which
+
+
+    allows both humans and computers to discover and understand the capabilities
+
+    of the service without access to source
+
+
+    code, documentation, or through network traffic inspection. When properly
+
+    defined via OpenAPI, a consumer can 
+
+
+    understand and interact with the remote service with a minimal amount of
+
+    implementation logic. Similar to what
+
+
+    interfaces have done for lower-level programming, OpenAPI removes the
+
+    guesswork in calling the service.
+tags:
+  - name: Auth
+    description: >-
+      Para acessar a API, você precisa de um **Bearer Token**, para conseguir o
+      Token você irá precisar fazer login na API
+  - name: Config
+    description: >-
+      Adicione, Atualize, Delete ou Veja as configs, que são tokens de outros
+      serviços, como o Asaas.
+  - name: Contacts
+    description: Ver os Contatos
+servers:
+  - url: https://localhost:3333/api/v1
+paths:
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Fazer Login
+      description: Fazer Login
+      operationId: Login
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      user:
+                        id: 1
+                        first_name: Administrador
+                        last_name: Administrador
+                        date_of_birth: null
+                        phone: null
+                        email: admin@admin.com
+                        email_verified_at: null
+                        remember_me_token: null
+                        avatar: null
+                        is_root: 0
+                        address_id: null
+                        account_id: 1
+                        created_at: '2022-06-02T10:07:05.000-04:00'
+                        updated_at: '2022-06-02T10:07:05.000-04:00'
+                        address: null
+                        accounts: []
+                        account: []
+                        roles: []
+                        fullName: Administrador Administrador
+                        permissions: []
+                      token:
+                        type: bearer
+                        token: token
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: >-
+                      'E_VALIDATION_FAILURE: Validation Exception' or
+                      'E_INVALID_AUTH_PASSWORD: Password mis-match'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                email: admin@admin.com
+                password: password
+        description: Contact body
+        required: true
+  /configs:
+    get:
+      tags:
+        - Config
+      summary: Mostrar Configs
+      description: Mostrar Configs
+      operationId: ShowConfig
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSucess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      first_name: example
+                      last_name: example2
+                      phone: '0123456789012'
+                      email: example@example.com
+                      chat_id: '1'
+                      date_of_birth: 31/12/2022
+                      cpf: 123.456.789-01
+                      rg: 12.345.678-9
+                      gender: Masculino/Feminino
+                      office: a
+                      account_id: '1'
+                      created_at: 2050-03-23T12:34:12;045-01:00
+                      updated_at: 2050-03-23T12:34:12;045-01:00
+                      id: '1'
+        '400':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+    post:
+      tags:
+        - Config
+      summary: Criar Config
+      description: Criar Config
+      operationId: CreateConfig
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSucess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      first_name: example
+                      last_name: example2
+                      phone: '0123456789012'
+                      email: example@example.com
+                      chat_id: '1'
+                      date_of_birth: 31/12/2022
+                      cpf: 123.456.789-01
+                      rg: 12.345.678-9
+                      gender: Masculino/Feminino
+                      office: a
+                      account_id: '1'
+                      created_at: 2050-03-23T12:34:12;045-01:00
+                      updated_at: 2050-03-23T12:34:12;045-01:00
+                      id: '1'
+            application/xml:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+        '400':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                firstName: example
+                lastName: example2
+                phone: '0123456789012'
+                email: example@example.com
+                chatId: '1'
+                dateOfBirth: 31/12/2022
+                cpf: 123.456.789-01
+                rg: 12.345.678-9
+                gender: Masculino/Feminino
+                office: a
+        description: Contact body
+        required: true
+  /configs/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          description: ID da Config
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Config
+      summary: Atualizar Config
+      description: Atualizar Config
+      operationId: UpdateConfig
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value: null
+            application/xml:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+        '400':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                firstName: example
+                lastName: example2
+                phone: '0123456789012'
+                email: example@example.com
+                chatId: '1'
+                dateOfBirth: 31/12/2022
+                cpf: 123.456.789-01
+                rg: 12.345.678-9
+                gender: Masculino/Feminino
+                office: a
+        description: Contact body
+        required: true
+  /contacts:
+    get:
+      tags:
+        - Contacts
+      summary: Mostrar Contatos
+      description: Mostrar Contacts
+      operationId: ShowContacts
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSucess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 1
+                        first_name: M1gu3l
+                        last_name: 000dasdadasdas1
+                        phone: null
+                        email: null
+                        created_at: '2022-06-06T09:57:32.000-04:00'
+                        updated_at: '2022-06-06T09:57:32.000-04:00'
+                        account_id: 1
+                        chat_id: null
+                        date_of_birth: null
+                        cpf: null
+                        rg: null
+                        gender: null
+                        office: null
+                      - id: 2
+                        first_name: dasdasd
+                        last_name: dd23423
+                        phone: null
+                        email: null
+                        created_at: '2022-06-06T09:57:32.000-04:00'
+                        updated_at: '2022-06-06T09:57:32.000-04:00'
+                        account_id: 1
+                        chat_id: null
+                        date_of_birth: null
+                        cpf: null
+                        rg: null
+                        gender: null
+                        office: null
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+    post:
+      tags:
+        - Contacts
+      summary: Criar Contato
+      description: Criar Contact
+      operationId: CreateContacts
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSucess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      first_name: example
+                      last_name: example2
+                      phone: '0123456789012'
+                      email: example@example.com
+                      chat_id: '1'
+                      date_of_birth: 31/12/2022
+                      cpf: 123.456.789-01
+                      rg: 12.345.678-9
+                      gender: Masculino/Feminino
+                      office: a
+                      account_id: '1'
+                      created_at: 2050-03-23T12:34:12;045-01:00
+                      updated_at: 2050-03-23T12:34:12;045-01:00
+                      id: '1'
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                firstName: example
+                lastName: example2
+                phone: '0123456789012'
+                email: example@example.com
+                chatId: '1'
+                dateOfBirth: '20220312'
+                cpf: '12345678901'
+                rg: '123456789'
+                gender: Masculino
+                office: a
+        description: Contact body
+        required: true
+  /contacts/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          description: ID do contato
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Contacts
+      summary: Atualizar Contato
+      description: Atualizar Contato
+      operationId: UpdateContact
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      id: 1
+                      first_name: example
+                      last_name: example2
+                      phone: '0123456789012'
+                      email: example@example.com
+                      created_at: '2022-06-06T09:57:32.000-04:00'
+                      updated_at: '2022-06-13T09:57:18.859-04:00'
+                      account_id: 1
+                      chat_id: null
+                      date_of_birth: '2022-03-12'
+                      cpf: '12345678901'
+                      rg: '123456789'
+                      gender: Masculino
+                      office: a
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                firstName: example
+                lastName: example2
+                phone: '0123456789012'
+                email: example@example.com
+                chatId: '1'
+                dateOfBirth: '20220320'
+                cpf: '12345678901'
+                rg: '123456789'
+                gender: Masculino/Feminino
+                office: a
+        description: Contact Body
+        required: true
+    delete:
+      parameters:
+        - name: id
+          in: path
+          description: ID do contato
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Contacts
+      summary: Deletar Contato
+      description: Deletar Contato
+      operationId: DeleteContact
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload: null
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+  /dialogs:
+    get:
+      tags:
+        - Dialogs
+      summary: Mostrar Diálogos
+      description: Mostra o Chat e retorna o Status
+      operationId: GetDialogs
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 1
+                        userId: 1
+                        name: JohnDoe
+                        image: null
+                        accountId: 1
+                        chatId: 1
+                        status: EM ANDAMENTO
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+    post:
+      tags:
+        - Dialogs
+      summary: Criar Diálogos
+      description: Cria um Diálogo
+      operationId: PostDialogs
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 1
+                        userId: 1
+                        name: JohnDoe
+                        image: null
+                        accountId: 1
+                        chatId: 1
+                        status: EM ANDAMENTO
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                chatId: '3'
+                status: ABERTO
+                name: JaneDoe
+                contactId: '42'
+        description: Contact body
+        required: true
+  /itens:
+    get:
+      tags:
+        - Itens
+      summary: Mostrar Itens
+      description: Mostra os itens cadastrados no sistema
+      operationId: GetItens
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 2
+                        name: id 2
+                        solution_id: 1
+                        type: MRR
+                        description: id 2
+                        cost: '123'
+                        seller_value: idk
+                        value_mmr: dasdsa
+                        value_ps: dksaldk
+                        account_id: 1
+                        created_at: '2022-06-13T10:08:39.000-04:00'
+                        updated_at: '2022-06-13T10:08:39.000-04:00'
+                        deleted_at: null
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+    post:
+      tags:
+        - Itens
+      summary: Criar Item
+      description: Cria um item
+      operationId: PostItens
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Item criado com sucesso
+                    payload:
+                      name: id 2
+                      solution_id: 1
+                      type: MRR
+                      description: id 2
+                      cost: 123
+                      seller_value: idk
+                      value_mmr: dasdsa
+                      value_ps: dksaldk
+                      account_id: 1
+                      created_at: '2022-06-13T10:18:52.355-04:00'
+                      updated_at: '2022-06-13T10:18:52.355-04:00'
+                      id: 3
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                name: id 2
+                description: id 2
+                type: MRR
+                solutionId: '1'
+                cost: '123'
+                sellerValue: idk
+                valueMmr: dasdsa
+                valuePs: dksaldk
+        description: Iten body
+        required: true
+  /itens/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          description: ID do Item
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Itens
+      summary: Atualizar Item
+      description: Atualizar Item
+      operationId: UpdateIten
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Item atualizado com sucesso
+                    payload:
+                      id: 2
+                      name: id 12
+                      solution_id: 1
+                      type: MRR
+                      description: id 11
+                      cost: 123
+                      seller_value: idk
+                      value_mmr: dasdsa
+                      value_ps: dksaldk
+                      account_id: 1
+                      created_at: '2022-06-13T10:08:39.000-04:00'
+                      updated_at: '2022-06-13T10:25:48.253-04:00'
+                      deleted_at: null
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                name: id 12
+                description: id 11
+                type: MRR
+                solutionId: '1'
+                cost: '123'
+                sellerValue: idk
+                valueMmr: dasdsa
+                valuePs: dksaldk
+        description: Item Body
+        required: true
+    delete:
+      parameters:
+        - name: id
+          in: path
+          description: ID do contato
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Itens
+      summary: Deletar Item
+      description: Deletar Item
+      operationId: DeleteIten
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Item deletado com sucesso
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+  /search:
+    get:
+      tags:
+        - Search
+      summary: Pesquisar Diálogos
+      description: >-
+        ## Search
+
+
+        A função Search é utilizada quando você precisa buscar um **Diálogo**
+        rápidamente, você pode filtrar em 5 tipos:  
+
+        - Status  
+
+        - Name  
+
+        - Operator  
+
+        - Contact  
+
+        - Last Message
+
+
+        ## Filter by Status:
+
+        Exemplo:
+
+        ```url
+
+        http://localhost:3333/api/v1/search?search=ABERTO
+
+        ```
+
+        A Response vai ser:
+
+        ![response](https://raw.githubusercontent.com/M1gu3l0001/SomethingAboutNothing/d630c0352d0bd25084204be2dc7d7d48dd77617a/carbon%20(4).svg)
+
+        Porque foi retornado esse resultado?  
+
+        Bom, o filtro utilizado foi o **Status** onde eu pedi para o server me
+        retornar os **Dialogs** que estão em **ABERTO**, nesse caso, só há 1
+        Dialog que está em Aberto.
+
+
+        ## Filter by Name:
+
+        Exemplo:
+
+        ```url
+
+        http://localhost:3333/api/v1/search?search=M1gu3l0001
+
+        ```
+
+        A Response vai ser:
+
+        ![response](https://raw.githubusercontent.com/M1gu3l0001/SomethingAboutNothing/d630c0352d0bd25084204be2dc7d7d48dd77617a/carbon%20(3).svg)
+
+        Porque foi retornado esse resultado?  
+
+        Bom, o filtro utilizado foi o **Name** onde eu pedi para o server
+        retornar os **Dialogs** que estão no nome de **M1gu3l0001**, nesse caso,
+        há 2 Dialogs que estão no nome de **M1gu3l0001**, dá para perceber aqui:
+
+        ```
+
+        "name": "M1gu3l0001" <---
+
+        ```
+
+
+        ## Filter by Operator:
+
+
+        Exemplo:
+
+        ```
+
+        http://localhost:3333/api/v1/search?search=Administrador
+
+        ```
+
+        A Response será essa:
+
+        ![response](https://raw.githubusercontent.com/M1gu3l0001/SomethingAboutNothing/d630c0352d0bd25084204be2dc7d7d48dd77617a/carbon%20(2).svg)
+
+        Porque foi retornado esse resultado?  
+
+        Bom, o filtro utilizado foi o **Operator**, ele basicamente entra no
+        ```operator_id``` e pega o seu nome.
+
+        ```
+
+        ...
+
+        "operator_id": 1, //Id do operador é 1
+
+        ...
+
+        ```
+
+        ```SQL
+
+        SELECT * FROM users WHERE id = 1 /*Pega todos os usuários e seleciona o
+        usuário de ID 1*/
+
+        /*Resultado: Administrador*/
+
+        ```
+
+        Nesse caso, há 2 Dialogs com o **operator_id = 1**
+
+
+        ## Filter by Contact:
+
+
+        Exemplo:
+
+        ```url
+
+        http://localhost:3333/api/v1/search?search=mauricie
+
+        ```
+
+        A Response será:
+
+        ![response](https://raw.githubusercontent.com/M1gu3l0001/SomethingAboutNothing/d630c0352d0bd25084204be2dc7d7d48dd77617a/carbon%20(1).svg)
+
+        Porque foi retornado esse resultado?  
+
+        Bom, o filtro utilizado foi o **Contact**, ele basicamente entra no
+        ```contact_id``` e pega o seu nome, nesse caso, se fizermos um GET na
+        rota ```/contacts/3```, teremos o seguinte resultado:
+
+        ![response](https://raw.githubusercontent.com/M1gu3l0001/SomethingAboutNothing/ffbd9b73fc2a9d1b13c5cad8a5faa4d916358198/carbon%20(5).svg)
+
+        o ```first_name``` é igual ao que colocamos na URL!
+
+
+        ## Filter by Last Message:
+
+
+        Exemplo:
+
+        ```http://localhost:3333/api/v1/search?search=eai!```
+
+        A Response será:
+
+        ![response](https://raw.githubusercontent.com/M1gu3l0001/SomethingAboutNothing/6ecab85e46dc84ebebee6fe6b57ce290c3dcb817/carbon%20(6).svg)
+
+        Porque foi retornado esse resultado?  
+
+        Bom, o filtro utilizado foi o **Last Message**, o que significa que você
+        pode procurar por um chat com a última mensagem enviada, nesse caso foi
+        o "eai!"
+      operationId: GetSearch
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 2
+                        name: id 2
+                        solution_id: 1
+                        type: MRR
+                        description: id 2
+                        cost: '123'
+                        seller_value: idk
+                        value_mmr: dasdsa
+                        value_ps: dksaldk
+                        account_id: 1
+                        created_at: '2022-06-13T10:08:39.000-04:00'
+                        updated_at: '2022-06-13T10:08:39.000-04:00'
+                        deleted_at: null
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+  /solutions:
+    get:
+      tags:
+        - Solutions
+      summary: Mostrar Soluções
+      description: Mostra as soluções cadastradas no sistema
+      operationId: GetSolutions
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 1
+                        name: My solution is the BEST, trust me
+                        created_at: '2022-06-13T10:08:33.000-04:00'
+                        updated_at: '2022-06-13T10:08:33.000-04:00'
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+    post:
+      tags:
+        - Solutions
+      summary: Criar Solução
+      description: Cria uma solução
+      operationId: PostSolution
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Função criada com sucesso
+                    payload:
+                      name: My solution is the BEST, trust me
+                      created_at: '2022-06-14T08:08:24.260-04:00'
+                      updated_at: '2022-06-14T08:08:24.260-04:00'
+                      id: 2
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                name: My solution is the BEST, trust me
+        description: Solution body
+        required: true
+  /solutions/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          description: ID da solução
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Solutions
+      summary: Atualizar Solução
+      description: Atualiza uma Solução
+      operationId: UpdateSolution
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Solução atualizada com sucesso
+                    payload:
+                      id: 2
+                      name: changing the name 'cause i want to do that! :D
+                      created_at: '2022-06-14T08:08:24.000-04:00'
+                      updated_at: '2022-06-14T08:12:22.835-04:00'
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                name: changing the name 'cause i want to do that! :D
+        description: Solution Body
+        required: true
+    delete:
+      parameters:
+        - name: id
+          in: path
+          description: ID da solução
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Solutions
+      summary: Deletar Solução
+      description: Deleta uma Solução
+      operationId: DeleteSolution
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Solução deletada com sucesso
+                    payload:
+                      id: 1
+                      name: My solution is the BEST, trust me
+                      created_at: '2022-06-13T10:08:33.000-04:00'
+                      updated_at: '2022-06-14T08:14:41.792-04:00'
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+  /operators:
+    get:
+      tags:
+        - Users
+      summary: Mostrar Operadores
+      description: Mostrar Operadores
+      operationId: ShowUsers
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Sucesso!
+                    payload:
+                      - id: 2
+                        first_name: M1gu3l
+                        last_name: '0001'
+                        date_of_birth: null
+                        phone: null
+                        email: email@email.com
+                        email_verified_at: null
+                        remember_me_token: null
+                        avatar: null
+                        is_root: 0
+                        address_id: null
+                        account_id: 1
+                        created_at: '2022-06-09T08:25:34.000-04:00'
+                        updated_at: '2022-06-09T08:25:34.000-04:00'
+                        accounts: []
+                        account: {}
+                        address: null
+                        roles: []
+                        fullName: M1gu3l 0001
+                        permissions: []
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+    post:
+      tags:
+        - Users
+      summary: Criar Operador
+      description: Criar Operador
+      operationId: CreateUsers
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Usuário criado com sucesso!
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                firstName: MY LITTLE
+                lastName: user
+                email: email@mymail.wowthatwasreallycool
+                password: mylittlepassword
+                rolesId:
+                  - 1
+                  - 2
+        description: User Body
+        required: true
+  /operators/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          description: ID do operador
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Users
+      summary: Atualizar Operador
+      description: Atualizar Operador
+      operationId: UpdateUsers
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Usuário atualizado com sucesso!
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example:
+                firstName: MY LITTLE
+                lastName: user
+                email: email@mymail.wowthatwasreallycool
+                password: M1gu3lPC@#
+                rolesId:
+                  - 1
+                  - 2
+        description: User Body
+        required: true
+    delete:
+      parameters:
+        - name: id
+          in: path
+          description: ID do operador
+          required: true
+          schema:
+            type: integer
+            format: int64
+      tags:
+        - Users
+      summary: Deletar Operador
+      description: Deletar Operador
+      operationId: DeleteOperator
+      security:
+        - Bearer Token: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: true
+                    code: 200
+                    message: Usuário deletado com sucesso!
+        '400':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                response:
+                  value:
+                    isSuccess: false
+                    code: 0
+                    message: 'E_UNAUTHORIZED_ACCESS: Unauthorized access'
+components:
+  securitySchemes:
+    main_auth:
+      type: apiKey
+      name: a
+      in: header
+    Bearer Token:
+      type: apiKey
+      in: header
+      name: Authorization
+    basic_auth:
+      type: http
+      scheme: basic

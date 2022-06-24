@@ -1,0 +1,113 @@
+get:
+  tags:
+    - Dialogs
+  summary: Mostrar Diálogos
+  description: Mostra o Chat e retorna o Status
+  operationId: GetDialogs
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSuccess": true,
+                  "code": 200,
+                  "message": "Sucesso!",
+                  "payload": [
+                    {
+                      "id": 1,
+                      "userId": 1,
+                      "name": "JohnDoe",
+                      "image": null,
+                      "accountId": 1,
+                      "chatId": 1,
+                      "status": "EM ANDAMENTO"
+                    }
+                  ]
+                }
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+
+post:
+  tags:
+    - Dialogs
+  summary: Criar Diálogos
+  description: Cria um Diálogo
+  operationId: PostDialogs
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSuccess": true,
+                  "code": 200,
+                  "message": "Sucesso!",
+                  "payload": [
+                    {
+                      "id": 1,
+                      "userId": 1,
+                      "name": "JohnDoe",
+                      "image": null,
+                      "accountId": 1,
+                      "chatId": 1,
+                      "status": "EM ANDAMENTO"
+                    }
+                  ]
+                }
+
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example:
+            {
+    "chatId": "3",
+    "status": "ABERTO",
+    "name": "JaneDoe",
+    "contactId": "42" #You know what this means :D
+}
+    description: Contact body
+    required: true
+

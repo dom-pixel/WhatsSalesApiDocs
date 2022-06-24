@@ -1,0 +1,123 @@
+put:
+  parameters: 
+    - name: id
+      in: path
+      description: ID do Item
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Itens
+  summary: Atualizar Item
+  description: Atualizar Item
+  operationId: UpdateIten
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                "isSuccess": true,
+                "code": 200,
+                "message": "Item atualizado com sucesso",
+                "payload": {
+                    "id": 2,
+                    "name": "id 12",
+                    "solution_id": 1,
+                    "type": "MRR",
+                    "description": "id 11",
+                    "cost": 123,
+                    "seller_value": "idk",
+                    "value_mmr": "dasdsa",
+                    "value_ps": "dksaldk",
+                    "account_id": 1,
+                    "created_at": "2022-06-13T10:08:39.000-04:00",
+                    "updated_at": "2022-06-13T10:25:48.253-04:00",
+                    "deleted_at": null
+                }
+            }
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example: {
+            "name": "id 12",
+            "description": "id 11",
+            "type": "MRR",
+            "solutionId": "1",
+            "cost": "123",
+            "sellerValue": "idk",
+            "valueMmr": "dasdsa",
+            "valuePs": "dksaldk"
+        }
+    description: Item Body
+    required: true
+
+       
+
+delete: 
+  parameters: 
+    - name: id
+      in: path
+      description: ID do contato
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Itens
+  summary: Deletar Item
+  description: Deletar Item
+  operationId: DeleteIten
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                "isSuccess": true,
+                "code": 200,
+                "message": "Item deletado com sucesso"
+                 }   
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}

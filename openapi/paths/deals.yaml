@@ -1,0 +1,140 @@
+get: 
+  tags:
+    - Deals
+  summary: Listar Acordos
+  description: Lista todos os Acordos
+  operationId: GetDeals
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "meta": {
+            "total": 1,
+            "per_page": 10,
+            "current_page": 1,
+            "last_page": 1,
+            "first_page": 1,
+            "first_page_url": "/?page=1",
+            "last_page_url": "/?page=1",
+            "next_page_url": null,
+            "previous_page_url": null
+        },
+        "data": [
+            {
+                "id": 1,
+                "pipeline_id": 1,
+                "stage_id": 1,
+                "user_id": 1,
+                "lost_reason_id": null,
+                "client_id": 1,
+                "title": "Take the Deal",
+                "description": "This thing has no description 'cause I don't want to put in it>:D",
+                "temperature": "hot",
+                "probability": 99,
+                "status": "won",
+                "ps_total_price": "0.00",
+                "mrr_total_price": "0.00",
+                "created_at": "2022-06-17T15:33:40.000-04:00",
+                "updated_at": "2022-06-17T15:33:40.000-04:00",
+                "account_id": 1
+            }
+        ]
+    }
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSuccess": false,
+                  "code": 0,
+                  "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+                }
+post:
+  tags:
+    - Deals
+  summary: Criar Acordo
+  description: Cria um Acordo
+  operationId: CreateDeal
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "pipeline_id": 4,
+        "stage_id": 2,
+        "client_id": 1,
+        "title": "Take the Deal",
+        "description": "This thing has no description 'cause I don't want to put in it>:D",
+        "temperature": "hot",
+        "probability": 99,
+        "status": "won",
+        "account_id": 1,
+        "user_id": 1,
+        "created_at": "2022-06-22T09:27:39.105-04:00",
+        "updated_at": "2022-06-22T09:27:39.105-04:00",
+        "id": 2
+    }
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+                  "isSuccess": false,
+                  "code": 0,
+                  "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+                }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example:
+            {
+    "pipelineId": 1,
+    "stageId": 1,
+    "clientId": 1,
+    "title": "Take the Deal",
+    "description": "This thing has no description 'cause I don't want to put in it>:D",
+    "temperature": "hot",
+    "probability": 99,
+    "status": "won"
+}
+    description: Cria um Estágio
+    required: true

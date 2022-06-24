@@ -1,0 +1,111 @@
+put:
+  parameters: 
+    - name: id
+      in: path
+      description: ID da Lost Reason
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Lost Reasons
+  summary: Atualizar Lost Reason
+  description: Atualizar um Motivo de Proposta Perdida (Lost Reason)
+  operationId: UpdateLostReason
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "id": 1,
+        "title": "LostReason1prqsim",
+        "description": "Perdemo prq eles n deixaram a gnt compra pipoca :(",
+        "account_id": 1,
+        "created_at": "2022-06-17T16:42:54.000-04:00",
+        "updated_at": "2022-06-17T16:54:37.221-04:00"
+    }
+}
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+          example: 
+            {
+    "title": "LostReason1prqsim",
+    "description": "Perdemo prq eles n deixaram a gnt compra pipoca :("
+}
+    description: Item Body
+    required: true
+
+delete: 
+  parameters: 
+    - name: id
+      in: path
+      description: ID da Lost Reason
+      required: true
+      schema: 
+        type: integer
+        format: int64
+  tags:
+    - Lost Reasons
+  summary: Deletar Lost Reason
+  description: Deleta um Motivo de Proposta Perdida 
+  operationId: DeleteLostReason
+  security:
+    - Bearer Token: []
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                "isSuccess": true,
+                "code": 200,
+                "message": "Sucesso!",
+                "payload": null
+            }
+    "400":
+      description: Internal Server Error 
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                  {
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+}

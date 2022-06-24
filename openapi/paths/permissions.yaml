@@ -1,0 +1,700 @@
+get: 
+  tags: 
+    -  Permissions
+  summary: Mostrar Configs
+  description: Mostra as Permissões cadastradas no Sistema
+  operationId: ShowPermissions
+  security: 
+    -  Bearer Token: []
+  responses: 
+    200: 
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value:
+                {
+    "isSuccess": true,
+    "code": 200,
+    "message": "Sucesso!",
+    "payload": {
+        "permissions": [
+            {
+                "id": 76,
+                "name": "deletar item",
+                "type": "delete",
+                "title": "Item",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 75,
+                "name": "editar item",
+                "type": "update",
+                "title": "Item",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 74,
+                "name": "criar item",
+                "type": "create",
+                "title": "Item",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 73,
+                "name": "visualizar item",
+                "type": "show",
+                "title": "Item",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 72,
+                "name": "listar itens",
+                "type": "list",
+                "title": "Item",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 71,
+                "name": "deletar solucao",
+                "type": "delete",
+                "title": "Solução",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 70,
+                "name": "editar solucao",
+                "type": "update",
+                "title": "Solução",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 69,
+                "name": "criar solucao",
+                "type": "create",
+                "title": "Solução",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 68,
+                "name": "visualizar solucao",
+                "type": "show",
+                "title": "Solução",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 67,
+                "name": "listar solucoes",
+                "type": "list",
+                "title": "Solução",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 66,
+                "name": "administrador",
+                "type": "admin",
+                "title": "Administrador",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 65,
+                "name": "deletar perfil",
+                "type": "delete",
+                "title": "Perfis",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 64,
+                "name": "editar perfil",
+                "type": "update",
+                "title": "Perfis",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 63,
+                "name": "visualizar perfil",
+                "type": "show",
+                "title": "Perfis",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 62,
+                "name": "criar perfil",
+                "type": "create",
+                "title": "Perfis",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 61,
+                "name": "listar perfis",
+                "type": "list",
+                "title": "Perfis",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 60,
+                "name": "deletar tag",
+                "type": "delete",
+                "title": "Tag",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 59,
+                "name": "editar tag",
+                "type": "update",
+                "title": "Tag",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 58,
+                "name": "visualizar tag",
+                "type": "show",
+                "title": "Tag",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 57,
+                "name": "criar tag",
+                "type": "create",
+                "title": "Tag",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 56,
+                "name": "listar tags",
+                "type": "list",
+                "title": "Tag",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 55,
+                "name": "deletar proposta",
+                "type": "delete",
+                "title": "Proposta",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 54,
+                "name": "editar proposta",
+                "type": "update",
+                "title": "Proposta",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 53,
+                "name": "visualizar proposta",
+                "type": "show",
+                "title": "Proposta",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 52,
+                "name": "criar proposta",
+                "type": "create",
+                "title": "Proposta",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 51,
+                "name": "listar propostas",
+                "type": "list",
+                "title": "Proposta",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 50,
+                "name": "deletar produto",
+                "type": "delete",
+                "title": "Produto",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 49,
+                "name": "editar produto",
+                "type": "update",
+                "title": "Produto",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 48,
+                "name": "visualizar produto",
+                "type": "show",
+                "title": "Produto",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 47,
+                "name": "criar produto",
+                "type": "create",
+                "title": "Produto",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 46,
+                "name": "listar produtos",
+                "type": "list",
+                "title": "Produto",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 45,
+                "name": "deletar motivo de perda",
+                "type": "delete",
+                "title": "Motivo de perda",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 44,
+                "name": "editar motivo de perda",
+                "type": "update",
+                "title": "Motivo de perda",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 43,
+                "name": "visualizar motivo de perda",
+                "type": "show",
+                "title": "Motivo de perda",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 42,
+                "name": "criar motivo de perda",
+                "type": "create",
+                "title": "Motivo de perda",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 41,
+                "name": "listar motivos de perda",
+                "type": "list",
+                "title": "Motivo de perda",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 40,
+                "name": "deletar configuracao",
+                "type": "delete",
+                "title": "Configuração",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 39,
+                "name": "editar configuracao",
+                "type": "update",
+                "title": "Configuração",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 38,
+                "name": "visualizar configuracao",
+                "type": "show",
+                "title": "Configuração",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 37,
+                "name": "criar configuracao",
+                "type": "create",
+                "title": "Configuração",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 36,
+                "name": "listar configuracoes",
+                "type": "list",
+                "title": "Configuração",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 35,
+                "name": "deletar conversa",
+                "type": "delete",
+                "title": "Conversa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 34,
+                "name": "editar conversa",
+                "type": "update",
+                "title": "Conversa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 33,
+                "name": "visualizar conversa",
+                "type": "show",
+                "title": "Conversa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 32,
+                "name": "criar conversa",
+                "type": "create",
+                "title": "Conversa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 31,
+                "name": "listar conversas",
+                "type": "list",
+                "title": "Conversa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 30,
+                "name": "deletar atividade",
+                "type": "delete",
+                "title": "Atividade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 29,
+                "name": "editar atividade",
+                "type": "update",
+                "title": "Atividade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 28,
+                "name": "visualizar atividade",
+                "type": "show",
+                "title": "Atividade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 27,
+                "name": "criar atividade",
+                "type": "create",
+                "title": "Atividade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 26,
+                "name": "listar atividades",
+                "type": "list",
+                "title": "Atividade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 25,
+                "name": "deletar oportunidade",
+                "type": "delete",
+                "title": "Oportunidade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 24,
+                "name": "editar oportunidade",
+                "type": "update",
+                "title": "Oportunidade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 23,
+                "name": "visualizar oportunidade",
+                "type": "show",
+                "title": "Oportunidade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 22,
+                "name": "criar oportunidade",
+                "type": "create",
+                "title": "Oportunidade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 21,
+                "name": "listar oportunidades",
+                "type": "list",
+                "title": "Oportunidade",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 20,
+                "name": "deletar contato",
+                "type": "delete",
+                "title": "Contato",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 19,
+                "name": "editar contato",
+                "type": "update",
+                "title": "Contato",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 18,
+                "name": "visualizar contato",
+                "type": "show",
+                "title": "Contato",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 17,
+                "name": "criar contato",
+                "type": "create",
+                "title": "Contato",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 16,
+                "name": "listar contatos",
+                "type": "list",
+                "title": "Contato",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 15,
+                "name": "deletar usuario",
+                "type": "delete",
+                "title": "Usuário",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 14,
+                "name": "editar usuario",
+                "type": "update",
+                "title": "Usuário",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 13,
+                "name": "visualizar usuario",
+                "type": "show",
+                "title": "Usuário",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 12,
+                "name": "criar usuario",
+                "type": "create",
+                "title": "Usuário",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 11,
+                "name": "listar usuarios",
+                "type": "list",
+                "title": "Usuário",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 10,
+                "name": "deletar etapa",
+                "type": "delete",
+                "title": "Etapa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 9,
+                "name": "editar etapa",
+                "type": "update",
+                "title": "Etapa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 8,
+                "name": "visualizar estapa",
+                "type": "show",
+                "title": "Etapa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 7,
+                "name": "criar etapa",
+                "type": "create",
+                "title": "Etapa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 6,
+                "name": "listar etapas",
+                "type": "list",
+                "title": "Etapa",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 5,
+                "name": "deletar funil",
+                "type": "delete",
+                "title": "Funil",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 4,
+                "name": "editar funil",
+                "type": "update",
+                "title": "Funil",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 3,
+                "name": "visualizar funil",
+                "type": "show",
+                "title": "Funil",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 2,
+                "name": "criar funil",
+                "type": "create",
+                "title": "Funil",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            },
+            {
+                "id": 1,
+                "name": "listar funis",
+                "type": "list",
+                "title": "Funil",
+                "created_at": "2022-06-17T15:13:58.000-04:00",
+                "updated_at": "2022-06-17T15:13:58.000-04:00"
+            }
+        ],
+        "permissionsTitle": [
+            {
+                "title": "Funil"
+            },
+            {
+                "title": "Etapa"
+            },
+            {
+                "title": "Usuário"
+            },
+            {
+                "title": "Contato"
+            },
+            {
+                "title": "Oportunidade"
+            },
+            {
+                "title": "Atividade"
+            },
+            {
+                "title": "Conversa"
+            },
+            {
+                "title": "Configuração"
+            },
+            {
+                "title": "Motivo de perda"
+            },
+            {
+                "title": "Produto"
+            },
+            {
+                "title": "Proposta"
+            },
+            {
+                "title": "Tag"
+            },
+            {
+                "title": "Perfis"
+            },
+            {
+                "title": "Administrador"
+            },
+            {
+                "title": "Solução"
+            },
+            {
+                "title": "Item"
+            }
+        ]
+    }
+}
+    400:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: {
+                
+    "isSuccess": false,
+    "code": 0,
+    "message": "E_UNAUTHORIZED_ACCESS: Unauthorized access"
+
+}

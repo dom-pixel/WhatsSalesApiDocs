@@ -24,12 +24,12 @@
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-"@redocly/cli@1.0.0-beta.98":
-  version "1.0.0-beta.98"
-  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-1.0.0-beta.98.tgz#f61746583f7140e06002151e0c641834f0c54597"
-  integrity sha512-sK0UlSrzM+puRAszb9ZrZK4f7HWHR+NxxmWunnL8Ryscpnfao+uBAt0b+qniL5nOvnJz57S2/tu8KmAmgHKyHA==
+"@redocly/cli@1.0.0-beta.103":
+  version "1.0.0-beta.103"
+  resolved "https://registry.yarnpkg.com/@redocly/cli/-/cli-1.0.0-beta.103.tgz#77f0677060745a0dffa671c9d4591cc92417ef91"
+  integrity sha512-/jiE5hppBs7KZleTwYHUiw9fXIyl0XQWGGNDGVOGMWZ00wZH0bJ+31sJmkngnf2sMg0gqjFx/cuHDULaPP587g==
   dependencies:
-    "@redocly/openapi-core" "1.0.0-beta.98"
+    "@redocly/openapi-core" "1.0.0-beta.103"
     assert-node-version "^1.0.3"
     chokidar "^3.5.1"
     colorette "^1.2.0"
@@ -40,26 +40,10 @@
     simple-websocket "^9.0.0"
     yargs "17.0.1"
 
-"@redocly/openapi-core@1.0.0-beta.98":
-  version "1.0.0-beta.98"
-  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.0.0-beta.98.tgz#3dfdd9b84e16b4c2c686914dd1ec53ef9135b1bd"
-  integrity sha512-lrWCpyaxMYaw0x4F6zP2FosGJGAogrFBz3VNDD3OsaSlC3iQZYIOBI2UNBqVtdnDZSzfTLIdiQtEoXfKzlD2qw==
-  dependencies:
-    "@redocly/ajv" "^8.6.4"
-    "@types/node" "^14.11.8"
-    colorette "^1.2.0"
-    js-levenshtein "^1.1.6"
-    js-yaml "^4.1.0"
-    lodash.isequal "^4.5.0"
-    minimatch "^5.0.1"
-    node-fetch "^2.6.1"
-    pluralize "^8.0.0"
-    yaml-ast-parser "0.0.43"
-
-"@redocly/openapi-core@^1.0.0-beta.97":
-  version "1.0.0-beta.100"
-  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.0.0-beta.100.tgz#f81a0ff44ce08ea08a8c51525c71f3c3ce818ca5"
-  integrity sha512-jf0UKP1nmuAwqe3I2D1FPZYDhcOrnnAQM36wYkPWZSYzO2OQv2Gcfms2g7vSQeq8+yK+8SZk+vP35lNR+IF70g==
+"@redocly/openapi-core@1.0.0-beta.103", "@redocly/openapi-core@^1.0.0-beta.97":
+  version "1.0.0-beta.103"
+  resolved "https://registry.yarnpkg.com/@redocly/openapi-core/-/openapi-core-1.0.0-beta.103.tgz#fff3fd5071d718cff6f135fe9ca3d0f154551302"
+  integrity sha512-O9ln5sQycdZsHsNbe3eZzDzi/h5mC94mCSZGrx2NbMXJNOqXOuNtG5si5Eamx/1BZgQLL+KhKCVea3QvWyjEcQ==
   dependencies:
     "@redocly/ajv" "^8.6.4"
     "@types/node" "^14.11.8"
